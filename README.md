@@ -20,7 +20,29 @@ The images and masks are converted into RGB formats and uniform image size of 25
 
 For over fitting, data augmentation techniques such as random horizontal flip, random vertical flip, color jitter are applied. The image and masks are converted into tensor for easy processing. The data is split into training and testing using train_test_split. For efficient data processing pytorch data loader is used for sequential processing of image and mask which reads each image/mask and transform it before model training or testing.
 
-#### Models and Performance
+### Modeling
+#### Unet
+The deep learning architecture of convolution neural networks(CNNs).  This is a specialized architecture of encoders and decoders with skip connections which retains the spatial information needed for localization of small patterns.  These networks are used for learning complex patterns from raw image data such as image pixels. 
+
+##### U-Shape Architecture
+The encoder down samples the image to capture context while symmetrical decoder up samples it by creating segmentation map to compare with ground truth. 
+
+##### Skip Connections
+These are direct links of feature maps from encoder to the decoder. This helps preserved lost fine grained spatial features such as boundaries during down sampling of encoding phase. 
+
+##### Fully Convolution
+This model uses convolution layers allowing it to process images of various sizes and parameter reductions. 
+
+#### DeepLabV3
+It utilizes atrous convolution and atrous spatial pyramid pooling to capture multi scale  context by expanding the receptive pixel field without reducing image resolution. It incorporates conditional random fields for boundary refinement for multi label image classification. Atrous spatial pyramid pooling involves complex computation of multiple convolutions. It uses mobilenetV3 as a backbone. 
+
+#### Random Forest Classifier
+It is a supervised classification technique as meta estimator which uses number of decision tree classifiers on various sub samples of the dataset,  where individual pixels are classified into distinct categories based on the extracted features.  It is one of the best estimator for identifying features in image by segmenting complex objects. The technique is robust against over fitting and handles high dimensional data well.
+
+#### Kmeans
+It is a unsupervised learning algorithm. It groups data into predetermined number of clusters where data is grouped together based on euclidian distance. In case of image segmentation, based on euclidian distance the pixels are grouped together into multiple clusters. Kmeans++ is the default method of initializing centroids of the clusters. 
+
+### Models and Performance
 Following models are evaluated based on the its performance. 
 1. Random Forest Classifier
 2. KMeans
