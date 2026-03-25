@@ -42,6 +42,26 @@ It is a supervised classification technique as meta estimator which uses number 
 #### Kmeans
 It is a unsupervised learning algorithm. It groups data into predetermined number of clusters where data is grouped together based on euclidian distance. In case of image segmentation, based on euclidian distance the pixels are grouped together into multiple clusters. Kmeans++ is the default method of initializing centroids of the clusters. 
 
+### Model Evaluation And Metrics
+#### CNN based models
+##### Activation
+Activation used as softmax for multi class segmentation. It is a part of metrics calculation.
+##### Metrics
+##### Dice Loss
+It measures overlap between predicted labels and ground truth. It is measured as
+(1-Dice Coefficients). It addresses class imbalance by focusing on the overlap area. It is used in
+satellite segmentation where there can be overlap of multiple landscapes or segmentation mask. The
+satellite images consist of multiple small target objects and can have imbalance landscape
+segmentation.
+##### Accuracy/Precision/Recall/F1Scores: 
+Default pytorch metrics is used to measure accuracy, precision, recall and F1 scores.
+#### Random Forest Classifier
+Overall performance of this classifier is best for all image sizes with less mean square error with
+respect to predicted mask and ground truth.
+#### Kmeans
+Kmeans classifier uses predefined mask clusters for predicting mask. It can identify overlaps for
+images with complex small object overlaps.
+
 ### Models and Performance
 Following models are evaluated based on the its performance. 
 1. Random Forest Classifier
@@ -173,6 +193,33 @@ Following models are evaluated based on the its performance.
     </tr>
   </tbody>
 </table>
+
+### Code Organization
+
+```data/```
+The data used for model traning and validation.
+
+```metrics/```
+Model performance metrics.
+
+```models/```
+Trained and validated models. 
+
+```src/```
+Source code for multiple model generation, training and validation. 
+
+```README.md```
+Details about the project aligned with template. 
+
+### Usage
+```
+$ git pull <project-dir>
+For models
+$ cd <models>
+$ git lfs pull
+
+```
+
 
 
 
