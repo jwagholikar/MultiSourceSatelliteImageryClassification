@@ -209,7 +209,7 @@ Trained and validated models.
 Source code for multiple model generation, training and validation. 
 
 ```README.md```
-Details about the project aligned with template. 
+Details about the project. 
 
 ### Usage
 ```
