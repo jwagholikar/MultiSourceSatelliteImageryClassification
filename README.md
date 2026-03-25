@@ -54,7 +54,7 @@ satellite segmentation where there can be overlap of multiple landscapes or segm
 satellite images consist of multiple small target objects and can have imbalance landscape
 segmentation.
 ##### Accuracy/Precision/Recall/F1Scores: 
-Default pytorch metrics is used to measure accuracy, precision, recall and F1 scores.
+Default pytorch/tensorflow metrics is used to measure accuracy, precision, recall and F1 scores.
 #### Random Forest Classifier
 Overall performance of this classifier is best for all image sizes with less mean square error with
 respect to predicted mask and ground truth.
